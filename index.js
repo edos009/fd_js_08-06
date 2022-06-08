@@ -58,4 +58,59 @@ console.log(multTable);
 
 // console.log(getValueMultiple(multTable, '5 * 5 = '));
 
+//!Example
 
+const getNumFamilyMembers = function () {
+  return prompt("Enter the number of family members: ");
+};
+
+const checkIsValueNotNumber = function (number) {
+  return number === null || number === "" || isNaN(Number(number));
+};
+
+const checkIsValueNotString = function (string) {
+  return string === null || string === "" || !isNaN(Number(string));
+};
+
+const getListFamily = function () {
+  const family = {};
+  while (true) {
+    const numFamilyMembers = getNumFamilyMembers();
+    if (checkIsValueNotNumber(numFamilyMembers)) {
+      alert("This is not a number");
+    } else {
+      for (let i = 1; i <= Number(numFamilyMembers); i++) {
+        while (true) {
+          const nameMemberFamily = prompt("Enter family member's name: ");
+          const memberFamily = prompt("Who is he? ");
+          if (
+            checkIsValueNotString(nameMemberFamily) ||
+            checkIsValueNotString(memberFamily)
+          ) {
+            alert("This is not a string");
+          } else {
+            family[nameMemberFamily] = memberFamily;
+            break;
+          }
+        }
+      }
+      break;
+    }
+  }
+
+  return family;
+};
+
+console.log(getListFamily());
+
+//! Example
+
+// const showRange = function (max, min, num) {
+//   for (let i = max; i >= min; i--) {
+//     if (i % num === 0) {
+//       console.log(i);
+//     }
+//   }
+// };
+
+// showRange(30,20,7);
